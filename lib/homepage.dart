@@ -21,25 +21,46 @@ class HomePage extends StatelessWidget {
           ),
           backgroundColor: Colors.blue,
         ),
-        body: ListView.separated(
+        body: ListView.builder(
           itemBuilder: (context, index) => todoItem(),
           itemCount: 3,
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 10,
-          ),
         ));
   }
 }
 
-Widget? todoItem() => Container(
-      decoration: BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          const Text(''),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.check))
-        ],
+Widget? todoItem() => Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white70,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 3,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Expanded(
+                child: Text(
+                  'My first task askljndklasjndjknasjkdnjkasnd',
+                  style: TextStyle(fontSize: 18),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+              const Spacer(),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.check))
+            ],
+          ),
+        ),
       ),
     );
