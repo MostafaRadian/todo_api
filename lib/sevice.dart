@@ -2,11 +2,18 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 class TaskServices{
-  var url = Uri.parse('https://dummyjson.com/todos');
 
   getData() async{
-    http.Response response= await http.get(url);
+    http.Response response= await http.get(Uri.parse('https://dummyjson.com/todos'));
     Map<String, dynamic> data = jsonDecode(response.body);
-    print(data['todos'][0]);
+   return data;
+  }
+
+  postData({required String taskName })async{
+    http.Response response= await http.post(Uri.parse('https://dummyjson.com/todos'),body: {
+      "todo": taskName,
+
+    });
+
   }
 }

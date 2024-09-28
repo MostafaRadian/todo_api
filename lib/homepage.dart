@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              print(TaskServices().getData());
+              print(TaskServices().postData(taskName: 'taskName'));
             },
             icon: const Icon(
               Icons.list,
