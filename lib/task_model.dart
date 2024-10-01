@@ -1,7 +1,7 @@
 class TaskModel {
   String? todo;
   bool? completed;
-  int? userId;
+  String? userId;
 
   TaskModel({ this.todo, this.completed, this.userId});
 
